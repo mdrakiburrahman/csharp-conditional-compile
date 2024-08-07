@@ -13,7 +13,7 @@
 
 ### Build on Windows, run on Linux
 
-`TODO`
+![Image](.img/b-win-r-lin.png)
 
 ### Build on Linux, run on Linux
 
