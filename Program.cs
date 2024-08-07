@@ -12,9 +12,9 @@ class Program
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             Console.WriteLine("Running on Windows!");
 
-#if LINUX
+#if BUILDING_ON_LINUX
         Console.WriteLine("Built on Linux!");
-#elif WINDOWS
+#elif BUILDING_ON_WINDOWS
         Console.WriteLine("Built in Windows!");
 #endif
 
