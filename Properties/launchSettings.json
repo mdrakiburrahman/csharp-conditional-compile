@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConditionalConsoleApp": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
