@@ -23,3 +23,5 @@ docker run --name conditional-console-app-container conditional-console-app
 ```
 
 ![Image](.img/b-lin-r-lin.png)
+
+### Conditional package install

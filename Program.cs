@@ -1,4 +1,7 @@
 ﻿using System.Runtime.InteropServices;
+using Bond;
+using Bond.IO.Safe;
+using Bond.Protocols;
 
 class Program
 {
@@ -14,5 +17,36 @@ class Program
 #elif WINDOWS
         Console.WriteLine("Built in Windows!");
 #endif
+
+        TestBond();
     }
+
+    private static void TestBond()
+    {
+        // Create an instance of the class
+        var person = new Person { Name = "John Doe", Age = 30 };
+
+        // Serialize the object to a memory stream
+        var output = new OutputBuffer();
+        var writer = new CompactBinaryWriter<OutputBuffer>(output);
+        Serialize.To(writer, person);
+
+        // Deserialize the object from the memory stream
+        var input = new InputBuffer(output.Data);
+        var reader = new CompactBinaryReader<InputBuffer>(input);
+        var deserializedPerson = Deserialize<Person>.From(reader);
+
+        // Output deserialized data
+        Console.WriteLine($"Name: {deserializedPerson.Name}, Age: {deserializedPerson.Age}");
+    }
+}
+
+[Schema]
+public class Person
+{
+    [Id(0)]
+    public string Name { get; set; }
+
+    [Id(1)]
+    public int Age { get; set; }
 }
