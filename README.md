@@ -25,3 +25,7 @@ docker run --name conditional-console-app-container conditional-console-app
 ![Image](.img/b-lin-r-lin.png)
 
 ### Conditional package install
+
+```csproj
+<PackageReference Include="Bond.Core.CSharp" Version="11.0.1" Condition="'$(IsBuildingOnWindows)' == 'true'"/>
+```

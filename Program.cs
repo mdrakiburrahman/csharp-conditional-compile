@@ -1,7 +1,9 @@
 ﻿using System.Runtime.InteropServices;
+#if BUILDING_ON_WINDOWS
 using Bond;
 using Bond.IO.Safe;
 using Bond.Protocols;
+#endif
 
 class Program
 {
@@ -16,11 +18,11 @@ class Program
         Console.WriteLine("Built on Linux!");
 #elif BUILDING_ON_WINDOWS
         Console.WriteLine("Built in Windows!");
-#endif
-
         TestBond();
+#endif
     }
 
+#if BUILDING_ON_WINDOWS
     private static void TestBond()
     {
         // Create an instance of the class
@@ -39,8 +41,10 @@ class Program
         // Output deserialized data
         Console.WriteLine($"Name: {deserializedPerson.Name}, Age: {deserializedPerson.Age}");
     }
+#endif
 }
 
+#if BUILDING_ON_WINDOWS
 [Schema]
 public class Person
 {
@@ -50,3 +54,4 @@ public class Person
     [Id(1)]
     public int Age { get; set; }
 }
+#endif
