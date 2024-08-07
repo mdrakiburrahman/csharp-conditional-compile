@@ -17,4 +17,9 @@
 
 ### Build on Linux, run on Linux
 
-`TODO`
+```powershell
+docker build -t conditional-console-app E:\git\csharp-conditional-compile
+docker run --name conditional-console-app-container conditional-console-app
+```
+
+![Image](.img/b-lin-r-lin.png)
