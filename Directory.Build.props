@@ -1,0 +1,9 @@
+<Project>
+  <!-- ==== Build environment ==== -->
+  <PropertyGroup>
+	<IsBuildingOnWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsBuildingOnWindows>
+    <IsBuildingOnLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsBuildingOnLinux>
+	<DefineConstants Condition="'$(IsBuildingOnWindows)'=='true'">BUILDING_ON_WINDOWS</DefineConstants>
+	<DefineConstants Condition="'$(IsBuildingOnLinux)'=='true'">BUILDING_ON_LINUX</DefineConstants>
+  </PropertyGroup>
+</Project>
